@@ -15,9 +15,9 @@ namespace Deepend.ProjectSync
 
         static void Main(string[] args)
         {
-#if DEBUG
-            args = new String[] { @"D:\Workspaces\carnival\cruise-personaliser\CruiseControl.Web" };
-#endif
+// #if DEBUG
+//             args = new String[] { @"D:\Workspaces\carnival\cruise-personaliser\CruiseControl.Web" };
+// #endif
             // Configuration Options
             String[] s_excludeFilter        = (ConfigurationManager.AppSettings["Filter.Exclude"] ?? @"^config\.rb$|^bin\\|^.sass-cache\\|^obj\\|\.orig$|\\_compiler\\|\.bat$|\.user$|\.csproj$|\.zip$|\.bak$|\.mdf$|\.log$|\.exe$").Split('|');
             String[] s_noneFilter           = (ConfigurationManager.AppSettings["Filter.None"]    ?? @"\.scss$|\.pubxml$|\\_GUIDES\\").Split('|');
