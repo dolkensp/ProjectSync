@@ -12,13 +12,15 @@ namespace Deepend.ProjectSync
     class Program
     {
         private enum ReturnCode {
-            0 = Success,
-            2 = ProjectFileNotFound
+            Success = 0,
+            ProjectFileNotFound = 2
         };
         
         static Boolean _running = true;
 
-        static Int32 Main(string[] args)
+        static Int32 Main(String[] args) { return (Int32)Process(args); }
+
+        static ReturnCode Process(string[] args)
         {
 // #if DEBUG
 //             args = new String[] { @"D:\Workspaces\carnival\cruise-personaliser\CruiseControl.Web" };
@@ -58,8 +60,10 @@ namespace Deepend.ProjectSync
             if (projFiles.Length != 1)
             {
                 Console.WriteLine("ProjectSync only supports a single .csproj file per root");
-                return (Int32)ReturnCode.ProjectFileNotFound;
+                return ReturnCode.ProjectFileNotFound;
             }
+
+            File.SetAttributes(projFiles[0], FileAttributes.Normal);
 
             FileStream projectStream;
 
@@ -230,7 +234,7 @@ namespace Deepend.ProjectSync
 
             if (pollingPeriod != 0) Console.ReadKey();
             
-            return (Int32)ReturnCode.Success;
+            return ReturnCode.Success;
         }
     }
 }
