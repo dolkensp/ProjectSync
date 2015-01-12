@@ -26,9 +26,9 @@ namespace Deepend.ProjectSync
 //             args = new String[] { @"D:\Workspaces\carnival\cruise-personaliser\CruiseControl.Web" };
 // #endif
             // Configuration Options
-            String[] s_excludeFilter          = (ConfigurationManager.AppSettings["Filter.Exclude"] ?? @"^config\.rb$|^bin\\|^.sass-cache\\|^obj\\|\.orig$|\\_compiler\\|\.bat$|\.user$|\.csproj$|\.zip$|\.bak$|\.mdf$|\.log$|\.exe$").Split('|');
+            String[] s_excludeFilter          = (ConfigurationManager.AppSettings["Filter.Exclude"] ?? @"thumbs.db$|^config\.rb$|^bin\\|^node_modules\\|^.sass-cache\\|^obj\\|\.orig$|\\_compiler\\|\.bat$|\.user$|\.vspscc$|\.vssscc$|\.csproj$|\.zip$|\.bak$|\.mdf$|\.log$|\.exe$").Split('|');
             String[] s_noneFilter             = (ConfigurationManager.AppSettings["Filter.None"]    ?? @"\.scss$|\.pubxml$|\\_GUIDES\\").Split('|');
-            String[] s_compileFilter          = (ConfigurationManager.AppSettings["Filter.Compile"] ?? @"\.cs$|\.cshtml$|\.aspx$|\.config$|\.asax$|\.ascx$|\.ashx$").Split('|');
+            String[] s_compileFilter          = (ConfigurationManager.AppSettings["Filter.Compile"] ?? @"\.cs$|\.cshtml$|\.asax$|\.ashx$").Split('|');
             String[] s_contentFilter          = (ConfigurationManager.AppSettings["Filter.Content"] ?? @"").Split('|');
             String defaultContentType         = (ConfigurationManager.AppSettings["DefaultType"]    ?? "Content");
             Int32 pollingPeriod    = Int32.Parse(ConfigurationManager.AppSettings["PollingPeriod"]  ?? "0");
